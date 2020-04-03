@@ -1,0 +1,9 @@
+D:\projets\mspr-reseau\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\bin\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.deps.json
+D:\projets\mspr-reseau\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\bin\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.dll
+D:\projets\mspr-reseau\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\bin\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.pdb
+D:\projets\mspr-reseau\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.csprojAssemblyReference.cache
+D:\projets\mspr-reseau\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.csproj.CoreCompileInputs.cache
+D:\projets\mspr-reseau\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.AssemblyInfoInputs.cache
+D:\projets\mspr-reseau\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.AssemblyInfo.cs
+D:\projets\mspr-reseau\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.dll
+D:\projets\mspr-reseau\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.pdb
