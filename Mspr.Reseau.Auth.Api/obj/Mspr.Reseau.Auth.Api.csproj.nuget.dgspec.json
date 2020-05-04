@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\projets\\mspr-reseau\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Api\\Mspr.Reseau.Auth.Api.csproj": {}
+    "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Api\\Mspr.Reseau.Auth.Api.csproj": {}
   },
   "projects": {
-    "D:\\projets\\mspr-reseau\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Api\\Mspr.Reseau.Auth.Api.csproj": {
+    "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.AdServices\\Mspr.Reseau.Auth.AdServices.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\projets\\mspr-reseau\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Api\\Mspr.Reseau.Auth.Api.csproj",
-        "projectName": "Mspr.Reseau.Auth.Api",
-        "projectPath": "D:\\projets\\mspr-reseau\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Api\\Mspr.Reseau.Auth.Api.csproj",
-        "packagesPath": "C:\\Users\\Anthony\\.nuget\\packages\\",
-        "outputPath": "D:\\projets\\mspr-reseau\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Api\\obj\\",
+        "projectUniqueName": "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.AdServices\\Mspr.Reseau.Auth.AdServices.csproj",
+        "projectName": "Mspr.Reseau.Auth.AdServices",
+        "projectPath": "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.AdServices\\Mspr.Reseau.Auth.AdServices.csproj",
+        "packagesPath": "C:\\Users\\antoi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.AdServices\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Anthony\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\antoi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "D:\\projets\\mspr-reseau\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Dto\\Mspr.Reseau.Auth.Dto.csproj": {
-                "projectPath": "D:\\projets\\mspr-reseau\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Dto\\Mspr.Reseau.Auth.Dto.csproj"
+              "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Dto\\Mspr.Reseau.Auth.Dto.csproj": {
+                "projectPath": "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Dto\\Mspr.Reseau.Auth.Dto.csproj"
               }
             }
           }
@@ -44,6 +44,80 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "System.DirectoryServices": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Api\\Mspr.Reseau.Auth.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Api\\Mspr.Reseau.Auth.Api.csproj",
+        "projectName": "Mspr.Reseau.Auth.Api",
+        "projectPath": "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Api\\Mspr.Reseau.Auth.Api.csproj",
+        "packagesPath": "C:\\Users\\antoi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\antoi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.AdServices\\Mspr.Reseau.Auth.AdServices.csproj": {
+                "projectPath": "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.AdServices\\Mspr.Reseau.Auth.AdServices.csproj"
+              },
+              "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Dto\\Mspr.Reseau.Auth.Dto.csproj": {
+                "projectPath": "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Dto\\Mspr.Reseau.Auth.Dto.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.10.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -62,24 +136,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\projets\\mspr-reseau\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Dto\\Mspr.Reseau.Auth.Dto.csproj": {
+    "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Dto\\Mspr.Reseau.Auth.Dto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\projets\\mspr-reseau\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Dto\\Mspr.Reseau.Auth.Dto.csproj",
+        "projectUniqueName": "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Dto\\Mspr.Reseau.Auth.Dto.csproj",
         "projectName": "Mspr.Reseau.Auth.Dto",
-        "projectPath": "D:\\projets\\mspr-reseau\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Dto\\Mspr.Reseau.Auth.Dto.csproj",
-        "packagesPath": "C:\\Users\\Anthony\\.nuget\\packages\\",
-        "outputPath": "D:\\projets\\mspr-reseau\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Dto\\obj\\",
+        "projectPath": "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Dto\\Mspr.Reseau.Auth.Dto.csproj",
+        "packagesPath": "C:\\Users\\antoi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\antoi\\Source\\Repos\\mspr-reseau-interface-auth\\Mspr.Reseau.Auth.Dto\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Anthony\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\antoi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -117,7 +191,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
