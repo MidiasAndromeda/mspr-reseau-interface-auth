@@ -7,6 +7,6 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https:
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword />
-    <_PublishTargetUrl>C:\Users\antoi\source\repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\bin\Release</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\antoi\source\repos\mspr-reseau-interface-auth\ApiPublish</_PublishTargetUrl>
   </PropertyGroup>
 </Project>

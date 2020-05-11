@@ -182,7 +182,7 @@ namespace Mspr.Reseau.Auth.AdServices
         /// <returns></returns>
         private DirectoryEntry getActiveDirectory()
         {
-            return new DirectoryEntry("LDAP://82.251.242.183", "Administrateur", "msprPortal2020@");
+            return new DirectoryEntry("LDAP://127.0.0.1", "Administrateur", "msprPortal2020@");
         }
 
 
