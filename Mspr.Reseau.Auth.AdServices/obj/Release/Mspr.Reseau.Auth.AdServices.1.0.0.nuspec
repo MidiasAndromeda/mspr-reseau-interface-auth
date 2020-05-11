@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Mspr.Reseau.Auth.AdServices</id>
+    <version>1.0.0</version>
+    <authors>Mspr.Reseau.Auth.AdServices</authors>
+    <owners>Mspr.Reseau.Auth.AdServices</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Mspr.Reseau.Auth.Dto" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.DirectoryServices" version="4.7.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.AdServices\bin\Release\netcoreapp3.1\Mspr.Reseau.Auth.AdServices.dll" target="lib\netcoreapp3.1\Mspr.Reseau.Auth.AdServices.dll" />
+  </files>
+</package>

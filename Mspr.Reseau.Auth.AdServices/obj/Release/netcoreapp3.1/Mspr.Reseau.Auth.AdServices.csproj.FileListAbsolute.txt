@@ -1,0 +1,11 @@
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.AdServices\bin\Release\netcoreapp3.1\Mspr.Reseau.Auth.AdServices.deps.json
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.AdServices\bin\Release\netcoreapp3.1\Mspr.Reseau.Auth.AdServices.dll
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.AdServices\bin\Release\netcoreapp3.1\Mspr.Reseau.Auth.AdServices.pdb
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.AdServices\bin\Release\netcoreapp3.1\Mspr.Reseau.Auth.Dto.dll
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.AdServices\bin\Release\netcoreapp3.1\Mspr.Reseau.Auth.Dto.pdb
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.AdServices\obj\Release\netcoreapp3.1\Mspr.Reseau.Auth.AdServices.csprojAssemblyReference.cache
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.AdServices\obj\Release\netcoreapp3.1\Mspr.Reseau.Auth.AdServices.AssemblyInfoInputs.cache
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.AdServices\obj\Release\netcoreapp3.1\Mspr.Reseau.Auth.AdServices.AssemblyInfo.cs
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.AdServices\obj\Release\netcoreapp3.1\Mspr.Reseau.Auth.AdServices.csproj.CopyComplete
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.AdServices\obj\Release\netcoreapp3.1\Mspr.Reseau.Auth.AdServices.dll
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.AdServices\obj\Release\netcoreapp3.1\Mspr.Reseau.Auth.AdServices.pdb

@@ -41,6 +41,14 @@ namespace Mspr.Reseau.Auth.AdServices
             return users;
         }
 
+        /// <summary>
+        /// Connecte l'utilisateur
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <param name="ipAdress"></param>
+        /// <param name="browserValue"></param>
+        /// <returns></returns>
         public UserDto getUser(string email, string password, string ipAdress, string browserValue)
         {
             UserDto userDto = new UserDto();
@@ -167,10 +175,6 @@ namespace Mspr.Reseau.Auth.AdServices
             // On envoie les modifications au serveur
             user.CommitChanges();
         }
-
-
-
-
 
         /// <summary>
         /// Créé une connexion à l'AD
