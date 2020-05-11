@@ -41,15 +41,21 @@ namespace Mspr.Reseau.Auth.Api.Controllers
         [HttpGet]
         public IActionResult Yes()
         {
-            AdServices.AdServices service = new AdServices.AdServices();
-            string final = "";
-            List<UserDto> users = service.getListOfUser();
-            foreach(UserDto user in users)
+            try
             {
-                final += user.Nom + " ";
+                AdServices.AdServices service = new AdServices.AdServices();
+                string final = "";
+                List<UserDto> users = service.getListOfUser();
+                foreach (UserDto user in users)
+                {
+                    final += user.Nom + " ";
+                }
+                return Ok(final);
             }
-            return Ok(final);
-
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("test")]
