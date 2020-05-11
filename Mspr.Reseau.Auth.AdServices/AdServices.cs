@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.DirectoryServices;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -40,9 +41,11 @@ namespace Mspr.Reseau.Auth.AdServices
             return users;
         }
 
-        public UserDto getUser(string email, string password)
+        public UserDto getUser(string email, string password, string ipAdress, string browserValue)
         {
             UserDto userDto = new UserDto();
+            Boolean newIp = false;
+            Boolean newBrowser = false;
 
             DirectoryEntry directoryEntry = getActiveDirectory();
 
@@ -56,14 +59,78 @@ namespace Mspr.Reseau.Auth.AdServices
             {
                 DirEntry = result.GetDirectoryEntry();
                 userDto = (fillUserWithEntryData(DirEntry));
+                userDto.NbEssais += 1;
+
+                //CHECK IP
+                if (!userDto.AdressesIp.Contains(ipAdress)){
+                    newIp = true;
+                    userDto.AdressesIp.Add(ipAdress);
+                    DirEntry.Properties["userIps"].Clear();
+                    foreach (string ip in userDto.AdressesIp)
+                    {
+                        DirEntry.Properties["userIps"].Add(ip);
+                    }
+                }
+
+                //CHECK BROWSER 
+                if (!userDto.NavigatorInfos.Contains(browserValue))
+                {
+                    newBrowser = true;
+                    userDto.NavigatorInfos.Add(browserValue);
+
+                    DirEntry.Properties["browserInfos"].Clear();
+                    foreach (string browser in userDto.NavigatorInfos)
+                    {
+                        DirEntry.Properties["browserInfos"].Add(browser);
+                    }
+                }
+
+
+                DirEntry.Properties["authTry"][0] = userDto.NbEssais;
+                DirEntry.CommitChanges();
+
+                if (userDto.NbEssais >= 3)
+                {
+                    userDto.EstBloque = true;
+                    DirEntry.CommitChanges();
+                    throw new Exception("This account is blocked after 3 tries.");
+                }
+
+                if (newIp)
+                {
+                    //MEME PAYS ?? 
+                    if (GetCountryFromIp(userDto.AdressesIp[0]) == GetCountryFromIp(ipAdress))
+                    {
+                        // ENVOI MAIL POUR PREVENIR USER
+                    }
+                    else //SINON -> EST BLOQUE TRUE
+                    {
+                        userDto.EstBloque = true;
+                        DirEntry.CommitChanges();
+                    }
+                }
+
+                if (newBrowser)
+                {
+                    //SEND MAIL ET BLOCK ACCOUNT
+                    userDto.EstBloque = true;
+                    DirEntry.CommitChanges();
+                }
+
+
+
+                if (GenerateSHA512String(password) != userDto.Password)
+                {
+                    throw new Exception("Bad password");
+                }
+
+                //CHECK BLOCKED ACCOUNT
+                if (userDto.EstBloque)
+                {
+                    //SEND MAIL TO DEBLOCK
+                    throw new Exception("This user is blocked. Verify your email.");
+                }
             }
-
-            if(GenerateSHA512String(password) != userDto.Password)
-            {
-                throw new Exception("Bad password");
-            }
-
-
             return userDto;
         }
 
@@ -83,6 +150,8 @@ namespace Mspr.Reseau.Auth.AdServices
             user.Properties["name"].Add(userDto.Nom);
             user.Properties["mail"].Add(userDto.Email);
             user.Properties["userAccountBlocked"].Add(userDto.EstBloque);
+            user.Properties["authTry"].Add(userDto.NbEssais);
+
             foreach (string infos in userDto.NavigatorInfos){
                 user.Properties["browserInfos"].Add(infos);
             }
@@ -98,6 +167,8 @@ namespace Mspr.Reseau.Auth.AdServices
             // On envoie les modifications au serveur
             user.CommitChanges();
         }
+
+
 
 
 
@@ -144,6 +215,12 @@ namespace Mspr.Reseau.Auth.AdServices
                 user.EstBloque = Convert.ToBoolean(entry.Properties["userAccountBlocked"][0]);
             }
 
+            //nombre essaies connexion
+            if (entry.Properties["authTry"].Count > 0)
+            {
+                user.NbEssais = Convert.ToInt32(entry.Properties["authTry"].Value);
+            }
+
             //Ses navigateurs
             if (entry.Properties["browserInfos"].Count > 0)
             {
@@ -165,6 +242,15 @@ namespace Mspr.Reseau.Auth.AdServices
 
             return user;
 
+        }
+
+        private string GetCountryFromIp(string ip)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://ipapi.co/"+ip+"/country/");
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            var reader = new System.IO.StreamReader(response.GetResponseStream(), ASCIIEncoding.ASCII);
+            return reader.ReadToEnd();
         }
 
         public static string GenerateSHA512String(string inputString)

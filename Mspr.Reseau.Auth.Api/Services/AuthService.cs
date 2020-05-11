@@ -12,13 +12,15 @@ namespace Mspr.Reseau.Auth.Api.Services
     public class AuthService: IAuthService
     {
         private readonly AppSettings _appSettings;
+        private AdServices.AdServices _adServices;
 
         public AuthService(IOptions<AppSettings> appSettings)
         {
             _appSettings = appSettings.Value;
+            _adServices = new AdServices.AdServices();
         }
 
-        public UserDto Authenticate([FromBody]string username, [FromBody]string password)
+        public UserDto Authenticate([FromBody]string username, [FromBody]string password, string ipAdress, string browserValue)
         {
             if (string.IsNullOrEmpty(username))
                 throw new ArgumentNullException("Username", "Username is required.");
@@ -26,19 +28,25 @@ namespace Mspr.Reseau.Auth.Api.Services
             if (string.IsNullOrEmpty(password))
                 throw new ArgumentNullException("Password", "Password is required.");
 
-            // GET USER FROM POWERSHELL LIBRARY
-            UserDto user = new UserDto()
+            // GET USER FROM ACTIVE DIRECTORY
+            UserDto user = _adServices.getUser(username, password, ipAdress, browserValue);
+
+            //CHECK USER EXISTE
+            if(user == new UserDto())
             {
-                Id = 1,
-                Nom = username,
-                Password = password
-            };
+                throw new AppException("This user account does not exist.");
+            }
+
             // Have I been Pwned ?
             if (HaveIBeenPowned(username))
                 throw new AppException("The email has been found in a powned credentials dictionnary. Please create a new account with a safe email.");
 
             if (HaveIBeenPowned(password))
                 throw new AppException("The password has been found in a powned credentials dictionnary. Please make sure you change your password before you retry logging in.");
+
+            
+            //CHECK PRVENANCE IP
+            
 
             return user;
         }

@@ -4,6 +4,6 @@ namespace Mspr.Reseau.Auth.Api.Services.Interfaces
 {
     public interface IAuthService
     {
-        UserDto Authenticate(string username, string password);
+        UserDto Authenticate(string username, string password, string ipAdress, string browserValue);
     }
 }

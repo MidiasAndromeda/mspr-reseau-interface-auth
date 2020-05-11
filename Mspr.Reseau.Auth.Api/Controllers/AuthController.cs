@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 using Mspr.Reseau.Auth.AdServices;
 using Mspr.Reseau.Auth.Api.Services.Interfaces;
 using Mspr.Reseau.Auth.Dto;
@@ -24,7 +26,10 @@ namespace Mspr.Reseau.Auth.Api.Controllers
         {
             try
             {
-                var user = _authService.Authenticate(model.Username, model.Password);
+                StringValues browserValue;
+                HttpContext.Request.GetTypedHeaders().Headers.TryGetValue("User-Agent", out browserValue);
+                string ipAddress = HttpContext.GetServerVariable("REMOTE_ADDR");
+                var user = _authService.Authenticate(model.Username, model.Password, ipAddress, browserValue.ToString());
                 return Ok(user);
             }
             catch (Exception ex)
@@ -53,30 +58,9 @@ namespace Mspr.Reseau.Auth.Api.Controllers
             AdServices.AdServices service = new AdServices.AdServices();
             try
             {
-                /*
-                UserDto user = new UserDto()
-                {
-                    Id = 1,
-                    Nom = "UsernameUser5",
-                    Password = "passwordUser",
-                    Email = "antoine5@plagnol.com",
-                    EstBloque = false,
-                    NavigatorInfos = new List<string>(),
-                    AdressesIp = new List<string>()
-                };
-
-                user.AdressesIp.Add("8.8.8.8");
-                user.AdressesIp.Add("9.9.9.9");
-
-                user.NavigatorInfos.Add("test1");
-                user.NavigatorInfos.Add("test2");
-                user.NavigatorInfos.Add("test3");
-
-                service.addUser(user);
-                */
-                UserDto user = service.getUser("antoine5@plagnol.com", "passwordUffser");
                 
-                return Ok(user.Nom);
+                return Ok("");
+
             }
             catch(Exception ex)
             {

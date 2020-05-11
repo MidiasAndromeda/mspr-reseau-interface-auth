@@ -9,6 +9,7 @@ namespace Mspr.Reseau.Auth.Dto
         public string Nom { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
+        public int NbEssais { get; set; }
         public Boolean EstBloque { get; set; }
         public List<string> NavigatorInfos { get; set; }
         public List<string> AdressesIp { get; set; }
@@ -17,6 +18,7 @@ namespace Mspr.Reseau.Auth.Dto
         {
             NavigatorInfos = new List<string>();
             AdressesIp = new List<string>();
+            NbEssais = 0;
         }
     }
 }
