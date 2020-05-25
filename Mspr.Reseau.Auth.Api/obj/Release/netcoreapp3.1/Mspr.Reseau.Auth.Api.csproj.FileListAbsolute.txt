@@ -29,3 +29,9 @@ C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\obj\
 C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\obj\Release\netcoreapp3.1\Mspr.Reseau.Auth.Api.csproj.CopyComplete
 C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\obj\Release\netcoreapp3.1\Mspr.Reseau.Auth.Api.dll
 C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\obj\Release\netcoreapp3.1\Mspr.Reseau.Auth.Api.pdb
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\bin\Release\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\bin\Release\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\bin\Release\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\bin\Release\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

@@ -6,6 +6,7 @@ using Mspr.Reseau.Auth.Dto;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace Mspr.Reseau.Auth.Api.Services
 {
@@ -45,25 +46,27 @@ namespace Mspr.Reseau.Auth.Api.Services
                 throw new AppException("The password has been found in a powned credentials dictionnary. Please make sure you change your password before you retry logging in.");
 
             
-            //CHECK PRVENANCE IP
-            
 
             return user;
         }
         private bool HaveIBeenPowned(string stringToTest)
         {
-            string hibpApiUrl = "https://haveibeenpwned.com/unifiedsearch/";
+            bool result = false;
 
-            // API call for username
-            var client = new RestClient(hibpApiUrl);
+            using (SqlConnection connection = new SqlConnection("Server=WIN-OEUHH2MHVVK6;Database=Powned;User Id=powned;Password=password;"))
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM  Powned WHERE mail ='" + stringToTest + "' OR password ='" + stringToTest + "'", connection);
+                command.Connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        result = true;
+                    }
+                }
+            }
 
-            var request = new RestRequest(stringToTest, DataFormat.Json);
-
-            // Get request
-            var response = client.Get(request);
-
-            // If the api returns something, the user has been powned, otherwise, it's safe
-            return response != null ? true : false;
+            return result;
         }
 
     }

@@ -45,7 +45,6 @@ C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\bin\
 C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Api.csprojAssemblyReference.cache
 C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\obj\Debug\netcoreapp3.1\staticwebassets\Mspr.Reseau.Auth.Api.StaticWebAssets.Manifest.cache
 C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\obj\Debug\netcoreapp3.1\staticwebassets\Mspr.Reseau.Auth.Api.StaticWebAssets.xml
-C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Api.AssemblyInfoInputs.cache
 C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Api.AssemblyInfo.cs
 C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Api\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Api.RazorTargetAssemblyInfo.cache
