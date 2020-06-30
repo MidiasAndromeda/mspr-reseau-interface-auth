@@ -54,7 +54,7 @@ namespace Mspr.Reseau.Auth.Api.Services
             bool result = false;
 
             //On, a stocké les mdp et mail en bdd vu que l'api a fermé
-            using (SqlConnection connection = new SqlConnection("Server=WIN-OEUHH2MHVVK6;Database=Powned;User Id=powned;Password=password;"))
+            using (SqlConnection connection = new SqlConnection("Server=WIN-OEUHH2MHVK6;Database=Powned;User Id=powned;Password=password;"))
             {
                 //On select
                 SqlCommand command = new SqlCommand("SELECT * FROM  Powned WHERE mail ='" + stringToTest + "' OR password ='" + stringToTest + "'", connection);
