@@ -309,8 +309,7 @@ namespace Mspr.Reseau.Auth.AdServices
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Erreur lors de l'envoi de mail",
-                    ex.ToString());
+                throw new Exception(ex.Message);
             }
         }
 
