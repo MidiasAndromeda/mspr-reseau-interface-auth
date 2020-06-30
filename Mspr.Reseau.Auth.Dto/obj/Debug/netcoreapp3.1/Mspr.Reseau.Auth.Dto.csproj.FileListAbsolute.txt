@@ -7,3 +7,10 @@ D:\projets\mspr-reseau\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug
 D:\projets\mspr-reseau\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.AssemblyInfo.cs
 D:\projets\mspr-reseau\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.dll
 D:\projets\mspr-reseau\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.pdb
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\bin\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.deps.json
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\bin\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.dll
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\bin\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.pdb
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.AssemblyInfoInputs.cache
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.AssemblyInfo.cs
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.dll
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.pdb
