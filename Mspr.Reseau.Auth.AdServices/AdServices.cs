@@ -298,13 +298,13 @@ namespace Mspr.Reseau.Auth.AdServices
             MailMessage message = new MailMessage(from, to);
             message.Subject = "Débloquer votre compte.";
             message.Body = @"Cliquer sur ce lien pour débloquer votre compte : www.portail.chatelet.pierre-noble.com/" + user.Nom;
-            SmtpClient client = new SmtpClient();
-            // Credentials are necessary if the server requires the client
-            // to authenticate before it will send email on the client's behalf.
-            client.UseDefaultCredentials = true;
+            
 
             try
             {
+                SmtpClient client = new SmtpClient("192.168.1.37", 25);
+                // Credentials are necessary if the server requires the client
+                // to authenticate before it will send email on the client's behalf.
                 client.Send(message);
             }
             catch (Exception ex)
