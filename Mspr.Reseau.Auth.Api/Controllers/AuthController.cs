@@ -64,7 +64,13 @@ namespace Mspr.Reseau.Auth.Api.Controllers
             AdServices.AdServices service = new AdServices.AdServices();
             try
             {
-                
+                UserDto user = new UserDto();
+                user.Nom = "UserSha1";
+                user.Email = "antoine.plagnol@gmail.com";
+                user.Password = "test1234";
+                user.EstBloque = false;
+                user.NbEssais = 0;
+                service.addUser(user);
                 return Ok("");
 
             }

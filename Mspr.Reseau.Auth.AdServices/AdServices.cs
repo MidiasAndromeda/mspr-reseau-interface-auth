@@ -108,6 +108,7 @@ namespace Mspr.Reseau.Auth.AdServices
                 {
                     userDto.EstBloque = true;
                     DirEntry.CommitChanges();
+                    EnvoiMailBloque(userDto);
                     throw new Exception("This account is blocked after 3 tries.");
                 }
 
