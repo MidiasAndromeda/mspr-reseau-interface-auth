@@ -302,7 +302,7 @@ namespace Mspr.Reseau.Auth.AdServices
 
             try
             {
-                SmtpClient client = new SmtpClient("smtp.gmail.com", 465);
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
                 client.UseDefaultCredentials = false;
                 // Credentials are necessary if the server requires the client
                 // to authenticate before it will send email on the client's behalf.
