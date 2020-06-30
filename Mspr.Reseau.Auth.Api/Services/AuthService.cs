@@ -33,7 +33,7 @@ namespace Mspr.Reseau.Auth.Api.Services
             UserDto user = _adServices.getUser(username, password, ipAdress, browserValue);
 
             //CHECK USER EXISTE
-            if(user == new UserDto())
+            if(user.Nom == null)
             {
                 throw new AppException("This user account does not exist.");
             }
