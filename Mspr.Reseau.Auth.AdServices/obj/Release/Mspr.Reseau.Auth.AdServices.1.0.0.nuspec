@@ -10,6 +10,7 @@
     <dependencies>
       <group targetFramework=".NETCoreApp3.1">
         <dependency id="Mspr.Reseau.Auth.Dto" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Hosting" version="2.2.7" exclude="Build,Analyzers" />
         <dependency id="System.DirectoryServices" version="4.7.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>

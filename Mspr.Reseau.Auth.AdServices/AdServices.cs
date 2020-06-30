@@ -1,4 +1,5 @@
-﻿using Mspr.Reseau.Auth.Dto;
+﻿using Microsoft.AspNetCore.Hosting.Internal;
+using Mspr.Reseau.Auth.Dto;
 using System;
 using System.Collections.Generic;
 using System.DirectoryServices;
@@ -6,6 +7,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 
 namespace Mspr.Reseau.Auth.AdServices
 {
@@ -108,8 +110,6 @@ namespace Mspr.Reseau.Auth.AdServices
                 {
                     userDto.EstBloque = true;
                     DirEntry.CommitChanges();
-                    EnvoiMailBloque(userDto);
-                    throw new Exception("This account is blocked after 3 tries.");
                 }
 
                 if (newIp)
@@ -119,6 +119,8 @@ namespace Mspr.Reseau.Auth.AdServices
                     {
                         // ENVOI MAIL POUR PREVENIR USER
                         EnvoiMailIp(userDto);
+
+                        DirEntry.CommitChanges();
                     }
                     else //SINON -> EST BLOQUE TRUE
                     {
@@ -148,6 +150,9 @@ namespace Mspr.Reseau.Auth.AdServices
                     EnvoiMailBloque(userDto);
                     throw new Exception("This user is blocked. Verify your email.");
                 }
+
+                userDto.EstBloque = false;
+                userDto.NbEssais = 0;
             }
             return userDto;
         }
@@ -159,31 +164,33 @@ namespace Mspr.Reseau.Auth.AdServices
         public void addUser(UserDto userDto)
         {
             DirectoryEntry directoryEntry = getActiveDirectory();
+                //On remplit ses infos
+                using (DirectoryEntry user = directoryEntry.Children.Add("cn=" + userDto.Nom, "user"))
+                {
+                    user.Properties["SAMAccountName"].Add(userDto.Email);
+                    user.Properties["name"].Add(userDto.Nom);
+                    user.Properties["mail"].Add(userDto.Email);
+                    user.Properties["userAccountBlocked"].Add(userDto.EstBloque);
+                    user.Properties["authTry"].Add(userDto.NbEssais);
+
+                    foreach (string infos in userDto.NavigatorInfos)
+                    {
+                        user.Properties["browserInfos"].Add(infos);
+                    }
+
+                    foreach (string ip in userDto.AdressesIp)
+                    {
+                        user.Properties["userIps"].Add(ip);
+                    }
 
 
-            //Création de l'utilisateur
-            DirectoryEntry user = directoryEntry.Children.Add("cn=" + userDto.Nom, "user");
-            //On remplit ses infos
-            user.Properties["SAMAccountName"].Add(userDto.Email);
-            user.Properties["name"].Add(userDto.Nom);
-            user.Properties["mail"].Add(userDto.Email);
-            user.Properties["userAccountBlocked"].Add(userDto.EstBloque);
-            user.Properties["authTry"].Add(userDto.NbEssais);
+                    user.Properties["userCustomPassword"].Add(GenerateSHA512String(userDto.Password));
 
-            foreach (string infos in userDto.NavigatorInfos){
-                user.Properties["browserInfos"].Add(infos);
-            }
-
-            foreach (string ip in userDto.AdressesIp)
-            {
-                user.Properties["userIps"].Add(ip);
-            }
-
-
-            user.Properties["userCustomPassword"].Add(GenerateSHA512String(userDto.Password));
-
-            // On envoie les modifications au serveur
-            user.CommitChanges();
+                    // On envoie les modifications au serveur
+                    user.CommitChanges();
+                }
+            
+            
         }
 
         /// <summary>
@@ -192,7 +199,7 @@ namespace Mspr.Reseau.Auth.AdServices
         /// <returns></returns>
         private DirectoryEntry getActiveDirectory()
         {
-            return new DirectoryEntry("LDAP://127.0.0.1", "Administrateur", "msprPortal2020@");
+            return new DirectoryEntry("LDAP://82.251.242.183", "Administrateur", "msprPortal2020@");
         }
 
 

@@ -65,8 +65,8 @@ namespace Mspr.Reseau.Auth.Api.Controllers
             try
             {
                 UserDto user = new UserDto();
-                user.Nom = "UserSha1";
-                user.Email = "antoine.plagnol@gmail.com";
+                user.Nom = "UserSha2";
+                user.Email = "apl@alx34.com";
                 user.Password = "test1234";
                 user.EstBloque = false;
                 user.NbEssais = 0;
