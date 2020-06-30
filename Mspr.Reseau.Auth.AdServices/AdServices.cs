@@ -94,8 +94,14 @@ namespace Mspr.Reseau.Auth.AdServices
                     }
                 }
 
-
-                DirEntry.Properties["authTry"][0] = userDto.NbEssais;
+                if(DirEntry.Properties["authTry"].Count > 0)
+                {
+                    DirEntry.Properties["authTry"][0] = userDto.NbEssais;
+                }
+                else
+                {
+                    DirEntry.Properties["authTry"].Add(userDto.NbEssais);
+                }
                 DirEntry.CommitChanges();
 
                 if (userDto.NbEssais >= 3)
