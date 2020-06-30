@@ -39,17 +39,17 @@ namespace Mspr.Reseau.Auth.Api.Services
             }
 
             // Have I been Pwned ?
-            if (HaveIBeenPowned(username))
+            if (HaveIBeenPownedCompte(username))
                 throw new AppException("The email has been found in a powned credentials dictionnary. Please create a new account with a safe email.");
 
-            if (HaveIBeenPowned(password))
+            if (HaveIBeenPownedPw(password))
                 throw new AppException("The password has been found in a powned credentials dictionnary. Please make sure you change your password before you retry logging in.");
 
             
 
             return user;
         }
-        private bool HaveIBeenPowned(string stringToTest)
+        private bool HaveIBeenPownedCompte(string stringToTest)
         {
             bool result = false;
 
@@ -57,7 +57,30 @@ namespace Mspr.Reseau.Auth.Api.Services
             using (SqlConnection connection = new SqlConnection("Server=WIN-OEUHH2MHVK6;Database=Powned;User Id=powned;Password=password;"))
             {
                 //On select
-                SqlCommand command = new SqlCommand("SELECT * FROM  Powned WHERE mail ='" + stringToTest + "' OR password ='" + stringToTest + "'", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM  Powned WHERE mail ='" + stringToTest + "'", connection);
+                command.Connection.Open();
+                //S'il y a des resultats, le comtpe a été powned
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        result = true;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        private bool HaveIBeenPownedPw(string stringToTest)
+        {
+            bool result = false;
+
+            //On, a stocké les mdp et mail en bdd vu que l'api a fermé
+            using (SqlConnection connection = new SqlConnection("Server=WIN-OEUHH2MHVK6;Database=Powned;User Id=powned;Password=password;"))
+            {
+                //On select
+                SqlCommand command = new SqlCommand("SELECT * FROM  Powned WHERE password ='" + stringToTest + "'", connection);
                 command.Connection.Open();
                 //S'il y a des resultats, le comtpe a été powned
                 using (SqlDataReader reader = command.ExecuteReader())
