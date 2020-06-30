@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.DirectoryServices;
 using System.Net;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -110,6 +111,7 @@ namespace Mspr.Reseau.Auth.AdServices
                     if (GetCountryFromIp(userDto.AdressesIp[0]) == GetCountryFromIp(ipAdress))
                     {
                         // ENVOI MAIL POUR PREVENIR USER
+                        EnvoiMailIp(userDto);
                     }
                     else //SINON -> EST BLOQUE TRUE
                     {
@@ -136,6 +138,7 @@ namespace Mspr.Reseau.Auth.AdServices
                 if (userDto.EstBloque)
                 {
                     //SEND MAIL TO DEBLOCK
+                    EnvoiMailBloque(userDto);
                     throw new Exception("This user is blocked. Verify your email.");
                 }
             }
@@ -272,6 +275,52 @@ namespace Mspr.Reseau.Auth.AdServices
                 result.Append(hash[i].ToString("X2"));
             }
             return result.ToString();
+        }
+
+        public static void EnvoiMailBloque(UserDto user)
+        {
+            string to = user.Email;
+            string from = "portail.chatelet@pierre-noble.com";
+            MailMessage message = new MailMessage(from, to);
+            message.Subject = "Débloquer votre compte.";
+            message.Body = @"Cliquer sur ce lien pour débloquer votre compte : www.portail.chatelet.pierre-noble.com/" + user.Nom;
+            SmtpClient client = new SmtpClient();
+            // Credentials are necessary if the server requires the client
+            // to authenticate before it will send email on the client's behalf.
+            client.UseDefaultCredentials = true;
+
+            try
+            {
+                client.Send(message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erreur lors de l'envoi de mail",
+                    ex.ToString());
+            }
+        }
+
+        public static void EnvoiMailIp(UserDto user)
+        {
+            string to = user.Email;
+            string from = "portail.chatelet@pierre-noble.com";
+            MailMessage message = new MailMessage(from, to);
+            message.Subject = "Vous vous êtes connecté avec une nouvelle IP.";
+            message.Body = @"Bonjour " + user.Nom + "Vous vous êtes connecté avec une nouvelle IP" ;
+            SmtpClient client = new SmtpClient();
+            // Credentials are necessary if the server requires the client
+            // to authenticate before it will send email on the client's behalf.
+            client.UseDefaultCredentials = true;
+
+            try
+            {
+                client.Send(message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erreur lors de l'envoi de mail",
+                    ex.ToString());
+            }
         }
     }
    

@@ -14,3 +14,4 @@ C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\
 C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.AssemblyInfo.cs
 C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.dll
 C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.pdb
+C:\Users\antoi\Source\Repos\mspr-reseau-interface-auth\Mspr.Reseau.Auth.Dto\obj\Debug\netcoreapp3.1\Mspr.Reseau.Auth.Dto.csprojAssemblyReference.cache
