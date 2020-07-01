@@ -10,6 +10,7 @@ namespace Mspr.Reseau.Auth.Dto
         public string Password { get; set; }
         public string Email { get; set; }
         public int NbEssais { get; set; }
+        public int CodeAuthentification { get; set; }
         public Boolean EstBloque { get; set; }
         public List<string> NavigatorInfos { get; set; }
         public List<string> AdressesIp { get; set; }

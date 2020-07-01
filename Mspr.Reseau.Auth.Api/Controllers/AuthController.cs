@@ -58,20 +58,14 @@ namespace Mspr.Reseau.Auth.Api.Controllers
             }
         }
 
-        [HttpGet("test")]
-        public IActionResult No()
+        [HttpPut()]
+        public IActionResult No([FromBody]DebloquerDto model)
         {
             AdServices.AdServices service = new AdServices.AdServices();
             try
             {
-                UserDto user = new UserDto();
-                user.Nom = "UserSha2";
-                user.Email = "apl@alx34.com";
-                user.Password = "test1234";
-                user.EstBloque = false;
-                user.NbEssais = 0;
-                service.addUser(user);
-                return Ok("");
+                service.deblocUser(model.Mail);
+                return Ok("user debloqued");
 
             }
             catch(Exception ex)
@@ -79,5 +73,6 @@ namespace Mspr.Reseau.Auth.Api.Controllers
                 return BadRequest(ex.Message); 
             }
         }
+
     }
 }

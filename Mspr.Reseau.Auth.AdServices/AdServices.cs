@@ -153,8 +153,45 @@ namespace Mspr.Reseau.Auth.AdServices
 
                 userDto.EstBloque = false;
                 userDto.NbEssais = 0;
+                Random rd = new Random();
+
+                userDto.CodeAuthentification = rd.Next(1000, 9999);
+                EnvoiMailCode(userDto);
+
             }
             return userDto;
+        }
+
+        public void deblocUser(string email)
+        {
+            UserDto userDto = new UserDto();
+
+            DirectoryEntry directoryEntry = getActiveDirectory();
+
+            DirectorySearcher searcher = new DirectorySearcher(directoryEntry);
+            searcher.Filter = "(&(objectClass=user)";
+            searcher.Filter += "(SAMAccountName=" + email + "))";
+            //Info user des utilisateurs
+            DirectoryEntry DirEntry = null;
+
+            foreach (SearchResult result in searcher.FindAll())
+            {
+                DirEntry = result.GetDirectoryEntry();
+                userDto = (fillUserWithEntryData(DirEntry));
+                userDto.NbEssais += 1;            
+
+                if (DirEntry.Properties["authTry"].Count > 0)
+                {
+                    DirEntry.Properties["authTry"][0] =0;
+                }
+                else
+                {
+                    DirEntry.Properties["authTry"].Add(0);
+                }
+                userDto.EstBloque = false;
+                DirEntry.CommitChanges();
+
+            }
         }
 
         /// <summary>
@@ -294,7 +331,7 @@ namespace Mspr.Reseau.Auth.AdServices
         public static void EnvoiMailBloque(UserDto user)
         {
             string to = user.Email;
-            string from = "portail.chatelet@pierre-noble.com";
+            string from = "antoine.plagnol@gmail.com";
             MailMessage message = new MailMessage(from, to);
             message.Subject = "Débloquer votre compte.";
             message.Body = @"Cliquer <a href='www.portail.chatelet.pierre-noble.com/" + user.Nom + "'> ici </a> pour débloquer votre compte.";
@@ -303,7 +340,7 @@ namespace Mspr.Reseau.Auth.AdServices
             try
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-                client.Credentials = new NetworkCredential("antoine.plagnol@gmail.com", "Ferney7166");
+                client.Credentials = new NetworkCredential(from, "Ferney7166");
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.EnableSsl = true;
                 // Credentials are necessary if the server requires the client
@@ -321,8 +358,8 @@ namespace Mspr.Reseau.Auth.AdServices
             string to = user.Email;
             string from = "portail.chatelet@pierre-noble.com";
             MailMessage message = new MailMessage(from, to);
-            message.Subject = "Débloquer votre compte.";
-            message.Body = @"Cliquer <a href='www.portail.chatelet.pierre-noble.com/" + user.Nom + "'> ici </a> pour débloquer votre compte.";
+            message.Subject = "Nouvelle IP détecté";
+            message.Body = @"Bonjour " + user.Nom + ", une nouvelle IP a été détecté lors de la connexion à votre compte";
 
             try
             {
@@ -334,8 +371,28 @@ namespace Mspr.Reseau.Auth.AdServices
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Erreur lors de l'envoi de mail",
-                    ex.ToString());
+                throw new Exception(ex.Message);
+            }
+        }
+        public static void EnvoiMailCode(UserDto user)
+        {
+            string to = user.Email;
+            string from = "portail.chatelet@pierre-noble.com";
+            MailMessage message = new MailMessage(from, to);
+            message.Subject = "Double authentification";
+            message.Body = @"Pour vous connecter, entrer : " + user.CodeAuthentification + ".";
+
+            try
+            {
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+                client.Credentials = new NetworkCredential("antoine.plagnol@gmail.com", "Ferney7166");
+                client.EnableSsl = true;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.Send(message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }
