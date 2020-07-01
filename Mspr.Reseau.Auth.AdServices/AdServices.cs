@@ -303,6 +303,7 @@ namespace Mspr.Reseau.Auth.AdServices
             try
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+                client.Credentials = new NetworkCredential("antoine.plagnol@gmail.com", "Ferney7166");
                 client.UseDefaultCredentials = false;
                 client.EnableSsl = true;
                 // Credentials are necessary if the server requires the client
@@ -326,7 +327,7 @@ namespace Mspr.Reseau.Auth.AdServices
             try
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-                client.UseDefaultCredentials = false;
+                client.Credentials = new NetworkCredential("antoine.plagnol@gmail.com", "Ferney7166");
                 client.EnableSsl = true;
                 client.Send(message);
             }
