@@ -304,6 +304,7 @@ namespace Mspr.Reseau.Auth.AdServices
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
                 client.UseDefaultCredentials = false;
+                client.EnableSsl = true;
                 // Credentials are necessary if the server requires the client
                 // to authenticate before it will send email on the client's behalf.
                 client.Send(message);
@@ -319,15 +320,14 @@ namespace Mspr.Reseau.Auth.AdServices
             string to = user.Email;
             string from = "portail.chatelet@pierre-noble.com";
             MailMessage message = new MailMessage(from, to);
-            message.Subject = "Vous vous êtes connecté avec une nouvelle IP.";
-            message.Body = @"Bonjour " + user.Nom + "Vous vous êtes connecté avec une nouvelle IP" ;
-            SmtpClient client = new SmtpClient();
-            // Credentials are necessary if the server requires the client
-            // to authenticate before it will send email on the client's behalf.
-            client.UseDefaultCredentials = true;
+            message.Subject = "Débloquer votre compte.";
+            message.Body = @"Cliquer <a href='www.portail.chatelet.pierre-noble.com/" + user.Nom + "'> ici </a> pour débloquer votre compte.";
 
             try
             {
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+                client.UseDefaultCredentials = false;
+                client.EnableSsl = true;
                 client.Send(message);
             }
             catch (Exception ex)
