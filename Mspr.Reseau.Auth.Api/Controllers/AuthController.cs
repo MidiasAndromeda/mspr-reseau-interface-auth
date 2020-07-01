@@ -38,25 +38,7 @@ namespace Mspr.Reseau.Auth.Api.Controllers
             }
         }
 
-        [HttpGet]
-        public IActionResult Yes()
-        {
-            try
-            {
-                AdServices.AdServices service = new AdServices.AdServices();
-                string final = "";
-                List<UserDto> users = service.getListOfUser();
-                foreach (UserDto user in users)
-                {
-                    final += user.Nom + " ";
-                }
-                return Ok(final);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
+
 
         [HttpGet("debloc")]
         public IActionResult No([FromQuery]DebloquerDto parameters)

@@ -153,6 +153,7 @@ namespace Mspr.Reseau.Auth.AdServices
 
                 userDto.EstBloque = false;
                 userDto.NbEssais = 0;
+                DirEntry.CommitChanges();
                 Random rd = new Random();
 
                 userDto.CodeAuthentification = rd.Next(1000, 9999);
@@ -335,7 +336,7 @@ namespace Mspr.Reseau.Auth.AdServices
             MailMessage message = new MailMessage(from, to);
             message.IsBodyHtml = true;
             message.Subject = "Débloquer votre compte.";
-            message.Body = @"Cliquer <a href='www.portail.chatelet.pierre-noble.com/authapi/api/debloc?mail=" + user.Email + "'> ici </a> pour débloquer votre compte.";
+            message.Body = @"Cliquer <a href='https://portail.chatelet.pierre-noble.com/authapi/api/debloc?mail=" + user.Email + "'> ici </a> pour débloquer votre compte.";
             
             try
             {
