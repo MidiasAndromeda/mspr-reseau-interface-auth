@@ -180,7 +180,10 @@ namespace Mspr.Reseau.Auth.AdServices
             searcher.Filter += "(SAMAccountName=" + email + "))";
             //Info user des utilisateurs
             DirectoryEntry DirEntry = null;
-
+            if(searcher.FindAll().Count == 0)
+            {
+                throw new Exception("User not found");
+            }
             foreach (SearchResult result in searcher.FindAll())
             {
                 DirEntry = result.GetDirectoryEntry();
@@ -200,6 +203,7 @@ namespace Mspr.Reseau.Auth.AdServices
                 DirEntry.CommitChanges();
 
             }
+            
         }
 
         /// <summary>
@@ -343,7 +347,7 @@ namespace Mspr.Reseau.Auth.AdServices
             MailMessage message = new MailMessage(from, to);
             message.IsBodyHtml = true;
             message.Subject = "Débloquer votre compte.";
-            message.Body = @"Cliquer <a href='https://portail.chatelet.pierre-noble.com/authapi/api/debloc?mail=" + user.Email + "'> ici </a> pour débloquer votre compte.";
+            message.Body = @"Cliquer <a href='https://portail.chatelet.pierre-noble.com/authapi/api/auth/debloc?mail=" + user.Email + "'> ici </a> pour débloquer votre compte.";
             
             try
             {
