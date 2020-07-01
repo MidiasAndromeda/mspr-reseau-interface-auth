@@ -116,7 +116,7 @@ namespace Mspr.Reseau.Auth.AdServices
                 if (newIp)
                 {
                     //MEME PAYS ?? 
-                    if (GetCountryFromIp(userDto.AdressesIp[0]) == GetCountryFromIp(ipAdress))
+                    if (GetCountryFromIp(userDto.AdressesIp[userDto.AdressesIp.Count - 1]) == GetCountryFromIp(ipAdress))
                     {
                         // ENVOI MAIL POUR PREVENIR USER
                         EnvoiMailIp(userDto);
