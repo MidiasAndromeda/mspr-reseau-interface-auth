@@ -109,6 +109,7 @@ namespace Mspr.Reseau.Auth.AdServices
                 if (userDto.NbEssais >= 3)
                 {
                     userDto.EstBloque = true;
+                    DirEntry.Properties["userAccountBlocked"][0] = true;
                     DirEntry.CommitChanges();
                 }
 
@@ -125,6 +126,7 @@ namespace Mspr.Reseau.Auth.AdServices
                     else //SINON -> EST BLOQUE TRUE
                     {
                         userDto.EstBloque = true;
+                        DirEntry.Properties["userAccountBlocked"][0] = true;
                         DirEntry.CommitChanges();
                     }
                 }
@@ -133,6 +135,8 @@ namespace Mspr.Reseau.Auth.AdServices
                 {
                     //SEND MAIL ET BLOCK ACCOUNT
                     userDto.EstBloque = true;
+
+                    DirEntry.Properties["userAccountBlocked"][0] = true;
                     DirEntry.CommitChanges();
                 }
 
@@ -153,6 +157,8 @@ namespace Mspr.Reseau.Auth.AdServices
 
                 userDto.EstBloque = false;
                 userDto.NbEssais = 0;
+                DirEntry.Properties["userAccountBlocked"][0] = false;
+                DirEntry.Properties["authTry"][0] = 0;
                 DirEntry.CommitChanges();
                 Random rd = new Random();
 
@@ -179,7 +185,7 @@ namespace Mspr.Reseau.Auth.AdServices
             {
                 DirEntry = result.GetDirectoryEntry();
                 userDto = (fillUserWithEntryData(DirEntry));
-                userDto.NbEssais += 1;            
+                userDto.NbEssais = 0;            
 
                 if (DirEntry.Properties["authTry"].Count > 0)
                 {
@@ -190,6 +196,7 @@ namespace Mspr.Reseau.Auth.AdServices
                     DirEntry.Properties["authTry"].Add(0);
                 }
                 userDto.EstBloque = false;
+                DirEntry.Properties["userAccountBlocked"][0] = false;
                 DirEntry.CommitChanges();
 
             }
