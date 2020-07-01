@@ -335,7 +335,7 @@ namespace Mspr.Reseau.Auth.AdServices
             MailMessage message = new MailMessage(from, to);
             message.IsBodyHtml = true;
             message.Subject = "Débloquer votre compte.";
-            message.Body = @"Cliquer <a href='www.portail.chatelet.pierre-noble.com/authapi/api/debloc?mail=" + user.Nom + "'> ici </a> pour débloquer votre compte.";
+            message.Body = @"Cliquer <a href='www.portail.chatelet.pierre-noble.com/authapi/api/debloc?mail=" + user.Email + "'> ici </a> pour débloquer votre compte.";
             
             try
             {
