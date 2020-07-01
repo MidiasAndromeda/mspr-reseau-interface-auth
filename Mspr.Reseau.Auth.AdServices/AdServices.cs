@@ -333,10 +333,10 @@ namespace Mspr.Reseau.Auth.AdServices
             string to = user.Email;
             string from = "antoine.plagnol@gmail.com";
             MailMessage message = new MailMessage(from, to);
+            message.IsBodyHtml = true;
             message.Subject = "Débloquer votre compte.";
-            message.Body = @"Cliquer <a href='www.portail.chatelet.pierre-noble.com/" + user.Nom + "'> ici </a> pour débloquer votre compte.";
+            message.Body = @"Cliquer <a href='www.portail.chatelet.pierre-noble.com/authapi/api/debloc?mail=" + user.Nom + "'> ici </a> pour débloquer votre compte.";
             
-
             try
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
@@ -356,7 +356,7 @@ namespace Mspr.Reseau.Auth.AdServices
         public static void EnvoiMailIp(UserDto user)
         {
             string to = user.Email;
-            string from = "portail.chatelet@pierre-noble.com";
+            string from = "antoine.plagnol@gmail.com";
             MailMessage message = new MailMessage(from, to);
             message.Subject = "Nouvelle IP détecté";
             message.Body = @"Bonjour " + user.Nom + ", une nouvelle IP a été détecté lors de la connexion à votre compte";
@@ -377,7 +377,7 @@ namespace Mspr.Reseau.Auth.AdServices
         public static void EnvoiMailCode(UserDto user)
         {
             string to = user.Email;
-            string from = "portail.chatelet@pierre-noble.com";
+            string from = "antoine.plagnol@gmail.com";
             MailMessage message = new MailMessage(from, to);
             message.Subject = "Double authentification";
             message.Body = @"Pour vous connecter, entrer : " + user.CodeAuthentification + ".";

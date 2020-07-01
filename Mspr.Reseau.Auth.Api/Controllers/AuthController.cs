@@ -58,13 +58,13 @@ namespace Mspr.Reseau.Auth.Api.Controllers
             }
         }
 
-        [HttpPut()]
-        public IActionResult No([FromBody]DebloquerDto model)
+        [HttpGet("debloc")]
+        public IActionResult No([FromQuery]DebloquerDto parameters)
         {
             AdServices.AdServices service = new AdServices.AdServices();
             try
             {
-                service.deblocUser(model.Mail);
+                service.deblocUser(parameters.Mail);
                 return Ok("user debloqued");
 
             }
